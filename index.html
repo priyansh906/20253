@@ -47,13 +47,13 @@
         var video = document.getElementById("video");
         if (Hls.isSupported()) {
           var hls = new Hls();
-          hls.loadSource("https://mafiatv.live/watch.php");
+          hls.loadSource("https://pull.niur.live/live/stream-9912101_lhd.m3u8?txSecret=9c9dcfd244f19cc9f65ba4a70b431d0e&txTime=67e39d30");
           hls.attachMedia(video);
           hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
           });
         } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-          video.src = "https://mafiatv.live/watch.php";
+          video.src = "https://pull.niur.live/live/stream-9912101_lhd.m3u8?txSecret=9c9dcfd244f19cc9f65ba4a70b431d0e&txTime=67e39d30";
           video.addEventListener("canplay", function () {
             video.play();
           });

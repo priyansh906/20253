@@ -47,13 +47,13 @@
         var video = document.getElementById("video");
         if (Hls.isSupported()) {
           var hls = new Hls();
-          hls.loadSource("https://vkvsd250.okcdn.ru/cmaf/8174863256108/sig/BxYlgbYeMHU/srcIp/172.69.178.85/urls/45.136.20.85/expires/1744407523175/clientType/13/srcAg/CHROME/fromCache/1/mid/9467564993324/id/8174863256108/get/hls_9467564993324.M8H9Ktvtoeg.m3u8");
+          hls.loadSource("https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421");
           hls.attachMedia(video);
           hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
           });
         } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-          video.src = "https://vkvsd250.okcdn.ru/cmaf/8174863256108/sig/BxYlgbYeMHU/srcIp/172.69.178.85/urls/45.136.20.85/expires/1744407523175/clientType/13/srcAg/CHROME/fromCache/1/mid/9467564993324/id/8174863256108/get/hls_9467564993324.M8H9Ktvtoeg.m3u8";
+          video.src = "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421";
           video.addEventListener("canplay", function () {
             video.play();
           });

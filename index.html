@@ -12,7 +12,9 @@
         padding: 0;
         height: 100%;
         overflow: hidden;
+        font-family: Arial, sans-serif;
       }
+
       #video-container {
         width: 100%;
         height: 100%;
@@ -20,11 +22,14 @@
         justify-content: center;
         align-items: center;
         background-color: black;
+        position: relative;
       }
+
       #video {
         width: 100%;
         height: auto;
       }
+
       #text-below {
         position: absolute;
         bottom: 10px;
@@ -35,6 +40,7 @@
         background-color: rgba(0, 0, 0, 0.5);
         padding: 5px 10px;
         border-radius: 5px;
+        z-index: 10;
       }
     </style>
 
@@ -56,6 +62,7 @@
   <body>
     <div id="video-container">
       <video id="video" controls></video>
+      <div id="text-below">www.rhinoarena.com</div>
     </div>
 
     <script>
@@ -63,13 +70,16 @@
         var video = document.getElementById("video");
         if (Hls.isSupported()) {
           var hls = new Hls();
-          hls.loadSource("https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421");
+          hls.loadSource(
+            "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421"
+          );
           hls.attachMedia(video);
           hls.on(Hls.Events.MANIFEST_PARSED, function () {
             video.play();
           });
         } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-          video.src = "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421";
+          video.src =
+            "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421";
           video.addEventListener("canplay", function () {
             video.play();
           });
